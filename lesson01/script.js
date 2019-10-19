@@ -1,5 +1,5 @@
 let money, income, addExpenses, deposit, mission, period;
 
-alert('Hello GitCommit!');
+alert('Hello new git branch!');
 
 console.log('Message-101');
