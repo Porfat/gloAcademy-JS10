@@ -1,5 +1,10 @@
-let money, income, addExpenses, deposit, mission, period;
+let money;
+let income;
+let addExpenses;
+let deposit;
+let mission;
+let period;
 
 alert('Hello new git branch!');
 
-console.log('Message-101');
+console.log('Message-101'); 
