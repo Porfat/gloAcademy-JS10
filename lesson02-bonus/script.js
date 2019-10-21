@@ -6,25 +6,25 @@ let num = 266219;
 
 let digits = num.toPrecision().split('');
 
-console.log(digits);
-
 function multiply (digits) {
     var prod = 1;
     for (var i = 0; i < digits.length; i++) {
         prod *= digits[i];
     }
     return prod;
-}
+};
 
 product = multiply(digits);
 
-console.log(product);
+console.log(`Произведение числа из num: ${product}`);
 
 // Полученный результат возвести в степень 3, используя только 1 оператор:
 
-console.log(product**3);
+productThirdPower = product**3
+
+console.log(`${product} ^ 3 = ${productThirdPower}`);
 
 // Вывести на экран первые 2 цифры полученного числа:
 
-console.log(product.toPrecision().substring(0,2));
+console.log(`Первые две цифры из полученного числа: ${(productThirdPower).toPrecision().substring(0,2)}`);
 
