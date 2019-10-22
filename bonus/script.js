@@ -4,8 +4,6 @@ let num = 266219;
 
 // Вывести в консоль произведение (умножение) цифр этого числа:
 
-let digits = num.toString().split('');
-
 product = num.toString().split('').reduce((accumulator, currentValue) => {
     return accumulator * currentValue;
 }, 1);
