@@ -1,11 +1,11 @@
 // Присвоить значения переменным
 
-let money = 23704;
-let income = 'Code banners for H1';
-let addExpenses = 'Pussy, Pivo, Weed';
-let deposit = false;
-let mission = 50000;
-let period = 2;
+let money = 23704,
+    income = 'Code banners for H1',
+    addExpenses = 'Pussy, Pivo, Weed',
+    deposit = false,
+    mission = 50000,
+    period = 2;
 
 // Вывести в консоль тип данных значений переменных money, income, deposit;
 
