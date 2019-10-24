@@ -1,9 +1,10 @@
 let bottle = [1,1,1,1],
     mouse = [1,1];
-    
-r = Math.floor(Math.random() * 3);
 
-bottle[r] = 0;
+
+bottle[Math.floor(Math.random() * 3)] = 0;
+
+console.log(`Бутылка с ядом (0): ${bottle}`);
 
 mouse[0] = bottle[0] * mouse[0];
 mouse[0] = bottle[1] * mouse[0];
@@ -20,7 +21,7 @@ switch (mouse.toString([])) {
         break;
     
     case '1,0':
-        console.log('Первая жива, вторая сдохла => яд во второй склянке');
+        console.log('Первая жива, вторая сдохла => яд в третьей склянке');
         break;
                 
     case '1,1':
