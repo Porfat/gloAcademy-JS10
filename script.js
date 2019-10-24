@@ -1,6 +1,6 @@
 'use strict';
 
-let money = prompt('Ваш месячный доход?', 30000),
+let money = +prompt('Ваш месячный доход?', 30000),
     addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Синты, софт, велик'),
     deposit = confirm('Есть ли у вас депозит в банке?'),
     mission = 100000,
@@ -34,21 +34,19 @@ console.log(`Бюджет на день: ${Math.floor(budgetDay)}`);
 
 
 switch (true) {
-    case (budgetDay <= 800):
+    case (budgetDay >= 800):
         console.log('Высокий уровень дохода');
         break;
 
-    case (300 > budgetDay < 800):
+    case (300 < budgetDay <= 800):
         console.log('Средний уровень дохода');
         break;
 
-    case (0 > budgetDay < 300):
+    case (0 < budgetDay <= 300):
         console.log('Низкий уровень дохода');
         break;
 
     default:
         console.log('Что то пошло не так');
         break;
-}
-
-
+};
