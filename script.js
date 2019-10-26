@@ -37,17 +37,17 @@ function getTargetMonth(a, b){
     return c;
 };
 
-let ExpensesMonth = getExpensesMonth(cost1, cost2),
-    AccumulatedMonth = getAccumulatedMonth(money, ExpensesMonth),
-    TargetMonth = getTargetMonth(mission, AccumulatedMonth);
+let expensesMonth = getExpensesMonth(cost1, cost2),
+    accumulatedMonth = getAccumulatedMonth(money, expensesMonth),
+    targetMonth = getTargetMonth(mission, accumulatedMonth);
 
 
-console.log(`f() Сумма всех расходов за месяц: ${ExpensesMonth}`);
-console.log(`f() Накопления за месяц: ${AccumulatedMonth}`);
-console.log(`f() Цель будет достигнута за: ${Math.floor(TargetMonth)} месяцев`);
+console.log(`f() Сумма всех расходов за месяц: ${expensesMonth}`);
+console.log(`f() Накопления за месяц: ${accumulatedMonth}`);
+console.log(`f() Цель будет достигнута за: ${Math.floor(targetMonth)} месяцев`);
 
 
-let budgetDay = AccumulatedMonth / 30;
+let budgetDay = accumulatedMonth / 30;
 console.log(`Бюджет на день: ${Math.floor(budgetDay)}`);
 
 let getStatusIncome = function() {
@@ -56,7 +56,7 @@ let getStatusIncome = function() {
             console.log('Высокий уровень дохода');
             break;
 
-        case (300 < budgetDay <= 800):
+        case (300 < budgetDay < 800):
             console.log('Средний уровень дохода');
             break;
 
