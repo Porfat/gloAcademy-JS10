@@ -48,7 +48,7 @@ let mandatoryExp1,
     
             };
             
-            sum = sum + +verif;
+            sum += + verif;
         };
     
         return sum;
