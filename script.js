@@ -38,11 +38,11 @@ switch (true) {
         console.log('Высокий уровень дохода');
         break;
 
-    case (300 < budgetDay <= 800):
+    case (budgetDay < 800 && budgetDay > 300 ):
         console.log('Средний уровень дохода');
         break;
 
-    case (0 < budgetDay <= 300):
+    case (budgetDay <= 300 && budgetDay >= 0):
         console.log('Низкий уровень дохода');
         break;
 
