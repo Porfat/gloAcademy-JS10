@@ -1,45 +1,48 @@
 'use strict';
 
-let days = [
-    ['Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday'],
-    ['Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье']
-],
+let arr = ['72', '29', '420', '460', '180', '90', '20'];
 
-lang = prompt('Language? (en, ru)').toLowerCase();
+let findTwoFour = function(){
 
-// Решите задачу через if:
+    for (let i = 0; i < 7; i++){
 
-if (lang == 'en'){
-    console.log(days[0]);
-}
+        if (arr[i].charAt(0) === '4' || arr[i].charAt(0) === '2') {
 
-else {
-    console.log(days[1]);
+            console.log(`arr[${i}]: ${arr[i]}`);
+        
+        };
+
+    };
+
 };
 
-// Решите задачу через switch:
+findTwoFour();
 
-switch (lang) {
+let findPrimeNumber = function(){
 
-    case 'en':
-        console.log(days[0]);
-        break;
+    for (let i = 2; i < 100; i++){
 
-    case 'ru':
-        console.log(days[1]);
-        break;
+        let prime = true;
+
+        for (let j = 2; j * j <= i; j++){
+
+            if (i % j == 0) {
+
+                prime = false;
+                
+                break;    
+            }
+            
+        }
+
+        if (prime == true){
+
+            console.log(i);
+
+        } 
+    
+    }
+
 };
 
-// Решите задачу через многомерный массив без ифов и switch:
-
-lang == 'en' ? console.log(days[0]) : console.log(days[1]);
-
-
-// Решить задачу (имя) с помощью нескольких тернарных операторов, без использования if или switch:
-
-let namePerson = prompt('Имя?').toLowerCase();
-
-namePerson == 'артем' ? console.log('Это директор') :
-namePerson == 'максим' ? console.log('Это преподователь'):
-console.log('Это студент');
-
+findPrimeNumber();
