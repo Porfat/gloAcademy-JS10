@@ -37,7 +37,7 @@ let findPrimeNumber = function(){
 
         if (prime == true){
 
-            console.log(i);
+            console.log(`Простое число: ${i} | Делители этого числа: 1 и ${i}`);
 
         } 
     
