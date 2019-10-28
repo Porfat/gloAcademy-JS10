@@ -2,21 +2,15 @@
 
 let arr = ['72', '29', '420', '460', '180', '90', '20'];
 
-let findTwoFour = function(){
-
-    for (let i = 0; i < 7; i++){
+arr.forEach(function(item, i, arr) {
 
         if (arr[i].charAt(0) === '4' || arr[i].charAt(0) === '2') {
 
-            console.log(`arr[${i}]: ${arr[i]}`);
+            console.log(`arr[${i}]: ${item}`);
         
         };
 
-    };
-
-};
-
-findTwoFour();
+});
 
 let findPrimeNumber = function(){
 
