@@ -6,11 +6,18 @@ let money,
     mission = 100000,
     period = 5;
 
-do{
-    money = prompt('Ваш месячный доход?', 30000);
-}
 
-while(isNaN(money) || money === '' || money === null);
+let start = function(){
+    
+    do{
+        money = prompt('Ваш месячный доход?', 30000);
+    }
+
+    while(isNaN(money) || money === '' || money === null);
+
+};
+
+start();
 
 let showTypeOf = function(data){
     console.log(`Тип данных переменной:`, typeof(data));
