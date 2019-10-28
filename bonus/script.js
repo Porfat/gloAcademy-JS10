@@ -1,6 +1,6 @@
 'use strict';
 
-let sentence = prompt('Write something in the field', '123');
+let sentence = 'Hi! My name is Philipp';
 
 function test (a) {
     
