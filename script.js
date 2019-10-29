@@ -87,15 +87,15 @@ let appData = {
 
     getStatusIncome: function(){
         switch (true) {
-            case (appData.budgetDay >= 800):
+            case (budgetDay >= 800):
                 console.log('Высокий уровень дохода');
                 break;
     
-            case (appData.budgetDay < 800 && budgetDay > 300 ):
+            case (budgetDay < 800 && budgetDay > 300 ):
                 console.log('Средний уровень дохода');
                 break;
     
-            case (appData.budgetDay <= 300 && budgetDay >= 0):
+            case (budgetDay <= 300 && budgetDay >= 0):
                 console.log('Низкий уровень дохода');
                 break;
     
@@ -121,7 +121,6 @@ appData.getBudget();
 console.log(appData.expensesMonth);
 
 
-
 console.log(`expensesMonth - Сумма всех расходов за месяц: ${appData.expensesMonth}`);
 
 
@@ -129,11 +128,11 @@ console.log(`getBudget() - Накопления за месяц: ${appData.budge
 
 
 
-appData.getTargetMonth() <0 ? console.log(`getTargetMonth() Цель не будет достигнута`) : console.log(`getTargetMonth() Цель будет достигнута за: ${Math.floor(appData.expensesMonth)} месяцев`);
+appData.getTargetMonth() <0 ? console.log(`getTargetMonth() - Цель не будет достигнута`) : console.log(`getTargetMonth() - Цель будет достигнута за: ${Math.floor(appData.expensesMonth)} месяцев`);
 
 
+let budgetDay = appData.getBudget() / 30;
 console.log(`Бюджет на день: ${Math.floor(appData.budgetDay)}`);
-
 
 
 
@@ -143,3 +142,10 @@ console.log(`Наша программа включает в себя данны
 for (let key in appData){
     console.log('Свойство: ' + key);
 }
+
+
+Вызвать все необходимые методы, чтобы корректно считались все данные. В консоль вывести: 
+
+— Расходы за месяц
+— За какой период будет достигнута цель (в месяцах)
+— Уровень дохода
