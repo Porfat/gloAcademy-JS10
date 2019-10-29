@@ -1,48 +1,38 @@
 'use strict';
 
-let arr = ['72', '29', '420', '460', '180', '90', '20'];
+let week = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 
-let findTwoFour = function(){
 
-    for (let i = 0; i < 7; i++){
+week.forEach(element => {
 
-        if (arr[i].charAt(0) === '4' || arr[i].charAt(0) === '2') {
+    document.write(element);
+    document.write('<br/>');
 
-            console.log(`arr[${i}]: ${arr[i]}`);
-        
-        };
 
-    };
+    if (element === 'Saturday' || element === 'Sunday'){
 
-};
+        document.write(element.bold());
 
-findTwoFour();
-
-let findPrimeNumber = function(){
-
-    for (let i = 2; i < 100; i++){
-
-        let prime = true;
-
-        for (let j = 2; j * j <= i; j++){
-
-            if (i % j == 0) {
-
-                prime = false;
-                
-                break;    
-            }
-            
-        }
-
-        if (prime == true){
-
-            console.log(`Простое число: ${i} | Делители этого числа: 1 и ${i}`);
-
-        } 
-    
     }
 
-};
+    
+});
 
-findPrimeNumber();
+// for (let element in week){
+
+//     document.write(week[element]);
+//     document.write('<br/>');
+
+//     if (week[element] === 'Saturday' || week[element] === 'Sunday'){
+        
+//         week[element].bold();
+
+//     }
+
+
+// }
+
+
+
+
+
