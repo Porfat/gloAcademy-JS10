@@ -2,17 +2,17 @@
 
 let money,
     
-    start = function(){
-    
-        do{
-            money = prompt('Ваш месячный доход?', 30000);
-        }
+start = function(){
 
-        while(isNaN(money) || money === '' || money === null);
+    do{
+        money = prompt('Ваш месячный доход?', 30000);
+    }
 
-    };
+    while(isNaN(money) || money === '' || money === null);
 
-    start();
+};
+
+start();
 
 let appData = {
     budget: money,
@@ -31,6 +31,8 @@ let appData = {
         appData.addExpenses = addExpenses.toLowerCase().split(',');
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
         
+        let mandatoryExp1,
+        mandatoryExp2;
 
         for (let i = 0; i < 2; i++){
     
@@ -42,14 +44,17 @@ let appData = {
                 mandatoryExp2 = prompt('2. Какие обязательные ежемесячные расходы у вас есть?', 'Телефон');
             }
     
-            let verif = prompt('Во сколько это обойдется?', 7000);
+            let verif;
 
-            while(isNaN(verif) || verif === '' || verif === null){
-    
+            do{
+
                 verif = prompt('Во сколько это обойдется?', 7000);
-                
-                
+
             }
+            
+
+            while(isNaN(verif) || verif === '' || verif === null);
+    
 
             appData.expenses.cost1 = verif;
             appData.expenses.cost2 = verif;
@@ -73,15 +78,13 @@ let appData = {
     getBudget: function(){
 
             appData.budgetDay = appData.expensesMonth / 30;
-
             appData.budgetMonth = appData.budget - appData.expensesMonth;
-
 
     },
 
 
     getTargetMonth: function(){
-        return appData.mission / appData.getBudget();
+        return appData.mission / appData.budgetMonth;
     },
 
 
@@ -108,8 +111,9 @@ let appData = {
 };
 
 
-let mandatoryExp1,
-    mandatoryExp2;
+
+
+
 
 appData.asking();
 
@@ -117,8 +121,8 @@ appData.getExpensesMonth();
 
 appData.getBudget();
 
+appData.getTargetMonth();
 
-console.log(appData.expensesMonth);
 
 
 console.log(`expensesMonth - Сумма всех расходов за месяц: ${appData.expensesMonth}`);
@@ -128,7 +132,7 @@ console.log(`getBudget() - Накопления за месяц: ${appData.budge
 
 
 
-appData.getTargetMonth() <0 ? console.log(`getTargetMonth() - Цель не будет достигнута`) : console.log(`getTargetMonth() - Цель будет достигнута за: ${Math.floor(appData.expensesMonth)} месяцев`);
+appData.getTargetMonth() <0 ? console.log(`getTargetMonth() - Цель не будет достигнута`) : console.log(`getTargetMonth() - Цель будет достигнута за: ${Math.floor(appData.getTargetMonth())} месяцев`);
 
 
 let budgetDay = appData.getBudget() / 30;
@@ -144,8 +148,3 @@ for (let key in appData){
 }
 
 
-Вызвать все необходимые методы, чтобы корректно считались все данные. В консоль вывести: 
-
-— Расходы за месяц
-— За какой период будет достигнута цель (в месяцах)
-— Уровень дохода
