@@ -24,27 +24,61 @@ let appData = {
     expenses: {},
     addExpenses: [],
     deposit: false,
+    percentDeposit: 0,
+    moneyDeposit: 0,
     mission: 100000,
     period: 5,
     asking: function(){
-        let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Синты, софт, велик');
-        appData.addExpenses = addExpenses.toLowerCase().split(',');
-        appData.deposit = confirm('Есть ли у вас депозит в банке?');
-        
-        let mandatoryExp,
-        expCost;
 
-        for (let i = 0; i < 2; i++){
-    
-            mandatoryExp = prompt(`${i+1}. Какие обязательные ежемесячные расходы у вас есть?`, `Расход #${i+1}`);
+
+        if(confirm('Есть ли у вас доп. заработок?')){
+
+            let itemIncome;
 
             do{
-                expCost = prompt('Во сколько это обойдется?', 7000);
+                itemIncome = prompt('Какой у вас доп. зарабаток?', 'Таксую');
             }
 
-            while(isNaN(expCost) || expCost === '' || expCost === null);
+            while(!isNaN(itemIncome) || itemIncome === '' || itemIncome === null);
+
+            let cashIncome;
+
+            do {
+                cashIncome = prompt('Сколько в месяц вы на этом зарабатываете?', 10000);
+            }
+
+            while(isNaN(cashIncome) || cashIncome === '' || cashIncome === null);
+
+            appData.income[itemIncome] = cashIncome;
+        }
+
+        appData.addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Синты, софт, велик');
+
+        appData.deposit = confirm('Есть ли у вас депозит в банке?');
+        
+
+        for (let i = 0; i < 2; i++){
+            
+            let itemExpenses;
+
+            do{
+           
+            itemExpenses = prompt(`${i+1}. Какие обязательные ежемесячные расходы у вас есть?`, `Расход #${i+1}`);
+
+            }
+
+            while(!isNaN(itemExpenses) || itemExpenses === '' || itemExpenses === null);
+
+
+            let cashExpenses;
+
+            do{
+                cashExpenses = prompt('Во сколько это обойдется?', 7000);
+            }
+
+            while(isNaN(cashExpenses) || cashExpenses === '' || cashExpenses === null);
     
-            appData.expenses[mandatoryExp] = +expCost;
+            appData.expenses[itemExpenses] = cashExpenses;
             
         }
 
@@ -94,23 +128,61 @@ let appData = {
         }
     },
 
+    getInfoDeposit: function(){
+        if(appData.deposit){
+
+            do {
+                appData.percentDeposit = prompt('Какой годовой процент?', '10');
+            }
+
+            while(isNaN(appData.percentDeposit) || appData.percentDeposit === '' || appData.percentDeposit === null);
+
+
+            do {
+                appData.moneyDeposit = prompt('Какая сумма заложена?', 10000);
+            }
+
+            while(isNaN(appData.moneyDeposit) || appData.moneyDeposit === '' || appData.moneyDeposit === null);
+
+        }
+    },
+
+    calcSavedMoney: function(){
+        return appData.budgetMonth * appData.period;
+    },
+
+    titleCase: function(){
+
+        let a = appData.addExpenses.toLowerCase().split(' ');
+    
+        for (let i = 0; i < a.length; i++){
+    
+            a[i] = a[i].charAt(0).toUpperCase() + a[i].substring(1);     
+    
+        }
+    
+        return a.join(' ');
+     }
+
 };
+
 
 appData.asking();
 appData.getExpensesMonth();
 appData.getBudget();
 appData.getTargetMonth();
+appData.getInfoDeposit();
 
 
-// console.log(appData.expenses);
-// console.log(appData.expensesMonth);
+appData.titleCase();
 
 
-console.log(`expensesMonth - Сумма всех расходов за месяц: ${appData.expensesMonth}`);
 
-console.log(`getBudget() - Накопления за месяц: ${appData.budgetMonth}`);
+console.log(`appData.expensesMonth - Сумма всех расходов за месяц: ${appData.expensesMonth}`);
 
-appData.getTargetMonth() <0 ? console.log(`getTargetMonth() - Цель не будет достигнута`) : console.log(`getTargetMonth() - Цель будет достигнута за: ${Math.floor(appData.getTargetMonth())} месяцев`);
+console.log(`appData.budgetMonth - Накопления за месяц: ${appData.budgetMonth}`);
+
+appData.getTargetMonth() <0 ? console.log(`getTargetMonth() - Цель не будет достигнута`) : console.log(`appData.getTargetMonth() - Цель будет достигнута за: ${Math.floor(appData.getTargetMonth())} месяцев`);
 
 console.log(`Бюджет на день: ${Math.floor(appData.budgetDay)}`);
 
@@ -118,9 +190,11 @@ console.log(`Бюджет на день: ${Math.floor(appData.budgetDay)}`);
 appData.getStatusIncome();
 
 
+console.log(appData.titleCase());
 
-console.log(`Наша программа включает в себя данные:`);
 
-for (let key in appData){
-    console.log('Свойство: ' + key);
-}
+// console.log(`Наша программа включает в себя данные:`);
+
+// for (let key in appData){
+//     console.log(`${key}: ${appData[key]}`);
+// }
