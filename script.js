@@ -154,7 +154,7 @@ let appData = {
     titleCase: function(){
 
         let a = appData.addExpenses.toLowerCase().split(' ');
-    
+        
         for (let i = 0; i < a.length; i++){
     
             a[i] = a[i].charAt(0).toUpperCase() + a[i].substring(1);     
