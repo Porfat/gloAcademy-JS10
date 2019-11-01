@@ -1,38 +1,8 @@
 'use strict';
 
-let week = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-
-
-week.forEach(element => {
-
-    document.write(element);
-    document.write('<br/>');
-
-
-    if (element === 'Saturday' || element === 'Sunday'){
-
-        document.write(element.bold());
-
-    }
-
+let today = new Date(),
+    date = ('0' + (today.getDate() + 1)).slice(-2)+'.'+('0' + (today.getMonth() + 1)).slice(-2) + '.' + today.getFullYear(),
     
-});
-
-// for (let element in week){
-
-//     document.write(week[element]);
-//     document.write('<br/>');
-
-//     if (week[element] === 'Saturday' || week[element] === 'Sunday'){
-        
-//         week[element].bold();
-
-//     }
-
-
-// }
-
-
-
-
-
+    time = ('0' + (today.getHours() +1)).slice(-2)+":"+('0' + (today.getMinutes() +1)).slice(-2) + ":" + ('0' + (today.getSeconds() + 1)).slice(-2),
+    
+    dateTime = document.write(time+' '+date);

@@ -1,6 +1,39 @@
 'use strict';
 
 let money,
+
+    // Получить кнопку "Рассчитать" через id:
+    calcButton = document.getElementById('start'),
+
+    // Получить кнопки “+” (плюс) через Tag, каждую в своей переменной.
+    btnPlus = document.getElementsByTagName('button'),
+    incomePlus = btnPlus[0],
+    expensesPlus = btnPlus[1],
+    
+    // Добавить чекбокс по Id через querySelector:
+    depositCheck = document.querySelector('#deposit-checkmark'),
+
+    // Получить поля для ввода возможных доходов (additional_income-item) при помощи querySelectorAll
+    additionalIncomeItem = document.querySelectorAll('.additional_income-item'),
+
+    // Добавить в переменные все блоки из правой части страницы, которые содержат в себе префикс "-value", начиная с class="budget_month-value" и заканчивая class="target_month-value":
+    budgetMonthValue = document.getElementsByClassName('budget_month-value')[0],
+    budgetDayValue = document.getElementsByClassName('budget_day-value')[0],
+    expensesMonthValue = document.getElementsByClassName('expenses_month-value')[0],
+    additionalIncomeValue = document.getElementsByClassName('additional_income-value')[0],
+    additionalExpensesValue = document.getElementsByClassName('additional_expenses-value')[0],
+    incomePeriodValue = document.getElementsByClassName('income_period-value')[0],
+    targetMonthValue = document.getElementsByClassName('target_month-value')[0],
+
+    // Получить оставшиеся поля через querySelector каждый в отдельную переменную (Инпуты с левой стороны не забудьте про range):
+    salaryAmount = document.querySelector('.salary-amount'),
+    incomeTitle = document.querySelector('.income-title'),
+    incomeAmount = document.querySelector('.income-amount'),
+    expensesTitle = document.querySelector('.expenses-title'),
+    expensesAmount = document.querySelector('.expenses-amount'),
+    additionalExpenses = document.querySelector('.aditional_expenses-item'),
+    periodSelect = document.querySelector('.period-select'),
+
     
 start = function(){
 
@@ -173,10 +206,7 @@ appData.getBudget();
 appData.getTargetMonth();
 appData.getInfoDeposit();
 
-
 appData.titleCase();
-
-
 
 console.log(`appData.expensesMonth - Сумма всех расходов за месяц: ${appData.expensesMonth}`);
 
@@ -188,9 +218,10 @@ console.log(`Бюджет на день: ${Math.floor(appData.budgetDay)}`);
 
 
 appData.getStatusIncome();
-
-
 console.log(appData.titleCase());
+
+
+
 
 
 // console.log(`Наша программа включает в себя данные:`);
@@ -198,3 +229,6 @@ console.log(appData.titleCase());
 // for (let key in appData){
 //     console.log(`${key}: ${appData[key]}`);
 // }
+
+
+
