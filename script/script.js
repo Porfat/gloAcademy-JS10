@@ -28,8 +28,7 @@ let calcButton = document.getElementById('start'),
     periodAmount = document.querySelector('.period-amount'),
     additionalExpensesItem = document.querySelector('.additional_expenses-item'),
     targetAmount = document.querySelector('.target-amount'),
-    incomeItems = document.querySelectorAll('.income-items'),
-    textInput = document.querySelectorAll('input[type="text"]');
+    incomeItems = document.querySelectorAll('.income-items');
 
 
 
@@ -48,13 +47,6 @@ let appData = {
     moneyDeposit: 0,
 
     start: function(){
-
-        // if(salaryAmount.value === ''){
-
-        //     calcButton.disabled = true;
-        //     // alert('Ошибка, поле месячный доход должно быть заполнено!')
-        //     // return;
-        // }
 
         appData.budget = +salaryAmount.value;
 
@@ -88,7 +80,6 @@ let appData = {
         periodSelect.addEventListener('input', function (){
             incomePeriodValue.value = appData.calcPeriod();
         });
-
 
 
     },
@@ -265,20 +256,31 @@ let appData = {
         return a.join(' ');
      },
 
-     disableFields: function(){
+};
+
+calcButton.addEventListener('click', function (){
+
+
+    if(salaryAmount.value === ''){
         
+        appData.start.disabled = true;
+    
+    } else {
+        appData.start();
         calcButton.style.display = 'none';
         cancelButton.style.display = 'block';
     
-        textInput.forEach(element => {
+        document.querySelectorAll('input[type="text"]').forEach(element => {
             element.disabled = true;
         });
 
-     }
+    
+    }
+   
+});
 
-};
 
-calcButton.addEventListener('click', appData.start);
+
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 
@@ -287,23 +289,6 @@ incomePlus.addEventListener('click', appData.addIncomeBlock);
 periodSelect.addEventListener("input", function rangeValue(){
     periodAmount.innerHTML = periodSelect.value;
 });
-
-calcButton.addEventListener('click', function (){
-                
-
-    if(salaryAmount.value === ''){
-        
-        appData.start.disabled = true;
-    
-    } else {
-
-        appData.disableFields();
-    
-    }
-   
-});
-
-
 
 
 
