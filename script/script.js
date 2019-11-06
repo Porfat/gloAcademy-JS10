@@ -285,7 +285,7 @@ let appData = {
             element.value = '';
             periodSelect.value = '1';
             periodAmount.innerHTML = '1';
-            incomePeriodValue = '0'
+            appData.budgetMonth = '0';
 
         });
 
