@@ -122,7 +122,7 @@ let appData = {
                 this.expenses[itemExpenses] = cashExpenses;
             }
 
-        });
+        }.bind(appData));
 
     },
 
@@ -137,7 +137,7 @@ let appData = {
                 this.income[itemIncome] = cashIncome;
             }
             
-        });
+        }.bind(appData));
 
     },
 
@@ -163,7 +163,7 @@ let appData = {
             if(itemValue !== ''){
                 this.addIncome.push(itemValue);
             }
-        });
+        }.bind(appData));
 
     },
 
