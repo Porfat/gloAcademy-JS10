@@ -153,7 +153,7 @@ let appData = {
             }
 
 
-        })
+        }.bind(appData))
     },
 
     getAddIncome: function(){
